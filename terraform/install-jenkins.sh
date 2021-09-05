@@ -11,6 +11,11 @@ sudo yum update -y
 sudo yum install docker -y
 sudo chkconfig docker on
 
+echo "Install Git"
+
+sudo yum update -y
+sudo yum install git -y
+
 echo "Install Jenkins"
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
