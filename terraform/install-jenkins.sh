@@ -11,7 +11,7 @@ sudo yum update -y
 sudo yum install docker -y
 sudo chkconfig docker on
 
-echo "Install Git"
+# echo "Install Git"
 
 sudo yum update -y
 sudo yum install git -y

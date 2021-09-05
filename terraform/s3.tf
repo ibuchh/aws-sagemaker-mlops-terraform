@@ -27,9 +27,10 @@ resource "aws_s3_bucket" "training_test_bucket" {
 resource "aws_s3_bucket_object" "train" {
     bucket = aws_s3_bucket.training_test_bucket.id
     # acl    = "private"
-    key    = "train/"
+    key    = "train/train.csv"
     source = "../data/train/train.csv"
 }
+
 
 output "model_bucket_name" {
   value = aws_s3_bucket.model_bucket.bucket
