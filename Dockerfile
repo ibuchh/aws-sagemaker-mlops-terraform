@@ -21,6 +21,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 # image, which reduces start up time.
 RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && python get-pip.py && \
     python -m pip install --upgrade "pip < 21.0" && \
+    pip install p5py && \
+    pip install PEP517 && \
     pip install numpy==1.16.2 scipy==1.2.1 scikit-learn==0.20.2 pandas flask gevent gunicorn && \
         (cd /usr/local/lib/python2.7/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
         rm -rf /root/.cache
