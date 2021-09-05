@@ -39,7 +39,7 @@ pipeline {
             steps {
               script {
                     def response = sh """ 
-                    TrainingJobStatus=`aws sagemaker describe-training-job --training-job-name \"${params.SAGEMAKER_TRAINING_JOB}-${env.BUILD_ID}\" | grep -Po \'"\'"TrainingJobStatus"\'"\\s*:\\s*"\\K([^"]*)\'`
+                    TrainingJobStatus=`aws sagemaker describe-training-job --region us-east-1 --training-job-name \"${params.SAGEMAKER_TRAINING_JOB}-${env.BUILD_ID}\" | grep -Po \'"\'"TrainingJobStatus"\'"\\s*:\\s*"\\K([^"]*)\'`
                     echo \$TrainingJobStatus
                     while [ \$TrainingJobStatus = "InProgress" ] ; do
                       TrainingJobStatus=`aws sagemaker describe-training-job --training-job-name \"${params.SAGEMAKER_TRAINING_JOB}-${env.BUILD_ID}\" | grep -Po \'"\'"TrainingJobStatus"\'"\\s*:\\s*"\\K([^"]*)\'`
